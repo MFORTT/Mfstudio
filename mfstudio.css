@@ -14,12 +14,21 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background: url('images/background4.jpg') no-repeat center center fixed;
+  background: url('images/background4.jpg') no-repeat center center;
   background-size: cover;
-  color: var(--text);
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-attachment: fixed;
+}
+
+@media (max-width: 760px) {
+  body {
+    background-attachment: scroll;
+    background-position: center top;
+    background-size: cover;
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 a { color: inherit; text-decoration: none; }
