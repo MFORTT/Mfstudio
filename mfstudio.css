@@ -39,8 +39,6 @@ body {
 }
 
 main {
-  flex: 1;
-  /* ...existing code... */
   footer {
     padding: 1rem 0.5rem;
     font-size: 0.95rem;
@@ -60,8 +58,6 @@ main {
     min-height: 18vw;
     width: 100vw;
     box-sizing: border-box;
-        
-
   }
   nav ul {
     flex-direction: column;
@@ -339,4 +335,3 @@ footer { border-top:1px solid #e2e8f0; color:var(--muted); padding:1.2rem 0 2.2r
     max-width: 600px;
   }
 }
-
