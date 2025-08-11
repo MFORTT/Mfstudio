@@ -20,6 +20,9 @@ body {
 }
 
 @media (max-width: 760px) {
+  html, body {
+    min-height: 100vh;
+  }
   body {
     background-attachment: scroll;
     background-position: center top;
@@ -274,3 +277,4 @@ footer { border-top:1px solid #e2e8f0; color:var(--muted); padding:1.2rem 0 2.2r
     max-width: 600px;
   }
 }
+
