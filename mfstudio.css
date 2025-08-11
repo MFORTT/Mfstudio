@@ -1,3 +1,18 @@
+ body {
+    position: relative;
+    background: none !important;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    background: url('images/background4.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll;
+    opacity: 1;
+    pointer-events: none;
+  }
 :root {
   --bg: #f8fafc;        /* page background */
   --panel: rgba(245, 243, 247, 0.35);     /* cards/forms now transparent white */
