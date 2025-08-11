@@ -323,3 +323,13 @@ footer { border-top:1px solid #e2e8f0; color:var(--muted); padding:1.2rem 0 2.2r
     max-width: 600px;
   }
 }
+/* --- Mobile background fix (put at END of file) --- */
+@media (max-width: 760px) {
+  body {
+    /* turn off fixed on phones so it can scale */
+    background-attachment: scroll !important;
+    background-position: center top;   /* keep it framed nicely */
+    background-size: cover;            /* still fills the screen */
+    min-height: 100dvh;                /* use dynamic viewport height on mobile */
+  }
+}
