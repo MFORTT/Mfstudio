@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — MF Studio</title>
+  <meta name="description" content="Get in touch with MF Studio for personal training or business services.">
+  <link rel="stylesheet" href="mfstudio.css" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    #contact .actions {
+      justify-content: flex-start;
+      margin-top: .6rem;
+    }
+    #contact .form-note {
+      color: #060707;
+      font-size: .9rem;
+      margin-top: .6rem;
+    }
+    .card hr {
+      border-color: rgba(148,163,184,.18);
+      border-style: solid;
+      border-width: 1px 0 0;
+      margin: .8rem 0;
+    }
+    .card .email-note {
+      color: #cbd5e1;
+    }
+    #contact {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 2.5rem;
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    #contact > div,
+    #contact > aside {
+      flex: 1 1 350px;
+      max-width: 500px;
+    }
+    main {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="home.html">
+        <span class="dot" aria-hidden="true"></span>
+        <span>MF Studio</span>
+      </a>
+      <nav>
+        <ul>
+            <li><a href="home.html">Welcome</a></li>
+            <li><a href="businessservices.html">Business Services</a></li>
+            <li><a href="personaltraining.html">Personal Training</a></li>
+            <li><a href="contactus.html" class="cta" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="hero-title">
+      <p class="eyebrow"><b>Contact</b></p>
+      <h1 id="hero-title">Let’s talk about your goals.</h1>
+      <p class="lead">Have a question or want to start a project? Send a message and I’ll reply within one business day.</p>
+    </section>
+
+    <!-- Contact content -->
+    <section id="contact" class="container contact" aria-labelledby="contact-title">
+      <div>
+        <div class="card">
+          <h2 id="contact-title">Send a Message</h2>
+
+          <!-- Works with JS mailto by default. Add data-netlify="true" if you deploy on Netlify. -->
+          <form id="contact-form" name="contact" autocomplete="on" novalidate>
+            <input type="hidden" name="form-name" value="contact">
+
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+
+            <label for="service">I’m interested in</label>
+            <select id="service" name="service" required>
+              <option value="" selected disabled>Choose one</option>
+              <option value="Personal Training">Personal Training</option>
+              <option value="Business Services">Business Services</option>
+              <option value="Both">Both</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <label for="msg">Message</label>
+            <textarea id="msg" name="message" required placeholder="Tell me a little about what you need…"></textarea>
+
+            <div class="actions">
+              <button class="btn primary" type="submit">Send Message</button>
+            </div>
+
+            <p class="form-note">By submitting, you agree to be contacted about your inquiry.</p>
+          </form>
+        </div>
+      </div>
+
+      <aside class="card" aria-label="Contact details">
+        <h3>Contact Details</h3>
+       <p><strong>Email:</strong> mffit.michelle@gmail.com</p>
+        <p><strong>Instagram:</strong> @mffit_</p>
+        <p><strong>Location:</strong> Virtual sessions available.</p>
+        <p><strong>Response Time:</strong> within 24 hours</p>
+        <p><strong>Availability:</strong> By appointment only, request times via contact form.</p>
+  <hr>
+  <p class="email-note">Prefer email? Click to open your mail app:</p>
+        <p><a class="btn" href="mailto:mffit.michelle@gmail.com?subject=Inquiry%20from%20MF%20Studio%20site">Email MF Studio</a></p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> MF Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple mailto handler so the form works on any static host
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const msg = document.getElementById('msg').value.trim();
+
+      if (!name || !email || !service || !msg) {
+        alert('Please complete all required fields.');
+        return;
+      }
+
+      const subject = `New inquiry (${service}) — ${name}`;
+      const body =
+        `Name: ${name}\nEmail: ${email}\nPhone: ${phone || '—'}\nInterested in: ${service}\n\nMessage:\n${msg}`;
+
+      window.location.href = `mailto:mffit.michelle@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+</html>
